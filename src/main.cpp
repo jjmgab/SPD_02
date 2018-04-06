@@ -41,9 +41,12 @@ int main() {
 		
 		// wczytuje dane z pliku
 		std::vector<t_job>* job_list_default = load_data("data/"+filename+".txt");
+		std::cout << filename << std::endl;
+		loader << filename << " " << job_wiTi_sum(*job_list_default) << std::endl;
+
 
 		// wykonywanie sie poszczegolnych algorytmow
-		int time;
+		//int time;
 
 		// std::cout << filename << std::endl;
 		// loader << filename << std::endl;
