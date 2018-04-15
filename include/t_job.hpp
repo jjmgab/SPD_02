@@ -7,32 +7,25 @@
  */
 class t_job {
 public:
-	int p,	// 
-		w,	// 
-		d;	// 
+	int p,	// czas wykonania
+		w,	// wspolczynnik kary
+		d;	// zadany termin zakonczenia
 
 	t_job();
-	t_job(const t_job &_job);
-
-
-	// /**
-	//  * Operator porownania ze wzgledu na dlugosc
-	//  * czasu przygotowywania zadania.
-	//  * 
-	//  * @param referencja na zadanie
-	//  * @return czy zadanie jest rowne
-	//  */
-	// bool operator==(const t_job &_job) {
-	// 	return this->r == _job.r;
-	// }
+	t_job(const t_job &_job) : p(_job.p), w(_job.w), d(_job.d) {};
 };
 
 
-
+/**
+ * Przeciazenie operatora mniejszosci.
+ * 
+ * Uzywany przez kolejke priorytetowa ktora sortuje
+ * zadania wg. w malejaco.
+ */
 struct compare_jobs_w {
 
 	bool operator()(const t_job& job1, const t_job& job2){
-		if (job1.w > job2.w) return true;
+		if (job1.w < job2.w) return true;
 		return false;
 	}
 
